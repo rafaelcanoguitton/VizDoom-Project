@@ -97,12 +97,22 @@ Se utiliza un modelo de Deep Q-Learning, donde el proceso de aprendizaje es simi
 Se emplea una política e-greedy con decaimiento lineal e. Por cada episodio, incrementa el porcentaje de cada acción dependiendo del puntaje obtenido. De esta forma, se puede deducir cuál es la mejor acción en cada estado.
 
 - ¿Cómo se calculan y aproximan los valores Q?
-  
-- ¿Qué modelo de optimización se usa?
-  Emplea un modelo de optimización con gradiente estocástica descendiente.
-- ¿Existe estraegia de repetición de experiencias?
-  
+
+La función Q se aproxima con una CNN que consta de dos capas convolucionales. A cada capa de convolución le sigue una capa de pooling máximo con pooling máximo de tamaño 2 y unidades lineales rectificadas para la activación. A continuación, hay una capa totalmente conectada con 800 unidades lineales rectificadas con fugas y una capa de salida con 8 unidades lineales correspondientes a las 8 combinaciones de las 3 acciones disponibles (izquierda, derecha y disparo). De acuerdo a los premios que va tomando cada acción, la tabla de valores Q es inicializada creando una matriz de n estados x la cantidad de acciones en cada experimento. Esta matriz inicia con todos los valores en 0, por lo que la probabilidad de que suceda una acción será la misma, en todos los casos. Después se escoge una acción al azar y se agrega el valor generado a la tabla Q[estado, acción].
+
+
+- ¿Qué modelo de optimización se usa?  
+
+Emplea un modelo de optimización con gradiente estocástica descendiente.
+ 
+- ¿Existe estrategia de repetición de experiencias?
+
+Sí, el personaje aparece siempre en la misma posición, por lo que hay muchas posibilidades de que se repitan comportamientos. Esto mejorar el comportamiento, con el objetivo de conseguir eliminar al enemigo en un tiempo menor y con mayor precisión.
+
 - ¿Existen objetivos Q fijos?
+
+Sí, en el caso del primer experimento es eliminar al enemigo y en el segundo experimento es los 2100 episodios.
+
   
 ## Experimento cambiando las condiciones del juego y parámetros de configuración del modelo Deep Q-Learning
 
