@@ -12,13 +12,23 @@
 ## Experimento Básico Cacodemon
 
 <!-- descripción, ejecución, convergencia y resultados obtenidos -->
+
+Este experimento consiste en tener un agente con comportamiento aleatorio, se presentan 3 acciones, moverse hacia la derecha, hacia la izquierda y disparar.  En este caso el agente por medio de la función `random.choice()`. Tenemos a un enemigo en pantalla, el cual es denominado como ***"Cacodemon"***, se mueve aleatoriamente pero generalmente se mantiene estático.
+
+Este experimento corre hasta llegar a un estado terminal, el cual es cuando el cacodemon muere o se llega al timeout establecido por la función `game.setEpisodeTimeout()`, esta función recibe como parámetro el número de ticks que se desea que el juego corra, en este caso se estableción en 200 ticks.
+
+Nuestro agente ganará 101 puntos por acabar con el enemigo, -5 al fallar un disparo y -1 punto por cada acción que se realice. Con esta configuración tenemos un setup que recompensa al agente por matar al enemigo y penaliza por fallar un disparo y por realizar una acción. El incentivo es hacia sólo realizar acciones que nos lleven a matar al enemigo y a no realizar un disparo fallido.
+
+Cómo nuestro agente es un agente aleatorio realmente no se tiene ningún tipo de aprendizaje pero podemos medir algunos resultados del juego
+
+<!-- cacodemon image -->
+![cacodemon](media/Screenshot%20from%202022-12-01%2013-07-09.png)
 ## Experimento Básico Medikit Collecting
 
 <!-- descripción, ejecución, convergencia y resultados obtenidos -->
 ## Configuración del Modelo de Deep Q-Learning
 
 - ¿Cómo es el modelo utilizado: MDP, Modelo de premios y modelo Q-Learning?
-
 - ¿Qué tipo de política es usada?
 - ¿Cómo se calculan y aproximan los valores Q?
 - ¿Qué modelo de optimización se usa?
